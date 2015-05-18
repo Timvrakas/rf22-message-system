@@ -1,1 +1,7 @@
 build-*
+/Release/
+spec.d
+.cproject
+.project
+.settings/
+.ino.cpp
