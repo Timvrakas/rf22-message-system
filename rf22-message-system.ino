@@ -33,7 +33,7 @@ void setup() {
 	pinMode(redLED, OUTPUT);
 	digitalWrite(greenLED, HIGH);
 	digitalWrite(redLED, LOW);
-	Serial.begin(9600);
+	Serial.begin(115200);
 	if (!manager.init())
 		Serial.println("Hardware Init Failed"); //@TODO This needs cause a reboot or throw error
 	else
