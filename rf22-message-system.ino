@@ -59,7 +59,7 @@ void loop() {
 		len = sizeof(buf);
 		manager.recvfrom(buf, &len, &from);
 		nodes[from] = 1;
-		if (!(buf[0] = 6)) {
+		if (!(buf[0] == 6)) {
 			Serial.print("#");
 			Serial.print(from);
 			Serial.print("> ");
