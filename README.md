@@ -3,6 +3,6 @@ Designed to work with the [Vrakas Labs RFM23BP Radio Modem](https://github.com/T
 This is verry much a work in progress.
 
 Dependencies:
--Arduino-Makefile
--Arduino IDE
--RadioHead Library
+- Arduino-Makefile
+- Arduino IDE
+- RadioHead Library
