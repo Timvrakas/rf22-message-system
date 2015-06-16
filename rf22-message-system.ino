@@ -32,12 +32,14 @@ void setup() {
 	pinMode(greenLED, OUTPUT);
 	pinMode(redLED, OUTPUT);
 	digitalWrite(greenLED, HIGH);
-	digitalWrite(redLED, LOW);
+	digitalWrite(redLED, HIGH);
 	Serial.begin(115200);
 	if (!manager.init())
 		Serial.println("Hardware Init Failed"); //@TODO This needs cause a reboot or throw error
 	else
 		Serial.println("Hardware Initialized");
+	driver.setTxPower(RH_RF22_RF23BP_TXPOW_30DBM);
+	digitalWrite(redLED, LOW);
 }
 
 void loop() {
@@ -80,7 +82,11 @@ void loop() {
 				Serial.print(" ");
 			}
 		}
-		Serial.println();
+		Serial.print(" (Temp:");
+		Serial.print(driver.temperatureRead(RH_RF22_TSRANGE_0_128C,0));
+		Serial.print("F  RSSI:");
+		Serial.print(driver.lastRssi());
+		Serial.println("dBm)");
 		timer = millis();
 		for (uint8_t i = 1; i < 255; i++) {
 			nodes[i] = 0;
